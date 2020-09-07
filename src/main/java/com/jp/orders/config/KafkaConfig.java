@@ -17,6 +17,9 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/*
+This is a configuration class which creates the required beans
+ */
 @Configuration
 public class KafkaConfig {
 
