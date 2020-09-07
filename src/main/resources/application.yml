@@ -1,0 +1,11 @@
+spring:
+  couchbase:
+    bootstrap-hosts:
+    - 192.168.1.9
+    bucket:
+      name: orders
+      password: orders@123
+kafka:
+  bootstrap:
+    servers: 192.168.1.18:9092,192.168.1.13:9092
+logging:  level:    org.springframework.data.couchbase.repository.query: DEBUG
