@@ -47,6 +47,7 @@ public class OrderProcessor {
 				break;
 			case "ORDERS":
 			orderRepository.save((Order) payload.getPayload());
+			LOGGER.info("--------sucessfully saved to database---------");
 			}
 		} catch (IOException e) {
 			LOGGER.error("unable to process order", e);
