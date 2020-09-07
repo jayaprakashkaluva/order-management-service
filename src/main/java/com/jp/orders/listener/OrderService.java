@@ -12,17 +12,18 @@ import com.jp.orders.repository.OrderRepository;
 @Service
 public class OrderService {
 
-	@Autowired
-	public OrderRepository orderRepository;
+    @Autowired
+    public OrderRepository orderRepository;
 
-	public Order getOrder(String orderId) {
-		return orderRepository.findById(orderId).orElseThrow(() -> new DataNotFoundException("No Order Found"));
-	}
-	public List<Order> getOrders(String email) {
-		return orderRepository.findByEmail(email);
-	}
-	
-	public List<Order> getOrders(String email,String zipCode) {
-		return orderRepository.findByEmailAndBillingAddress_Zipcode(email, zipCode);
-	}
+    public Order getOrder(String orderId) {
+        return orderRepository.findById(orderId).orElseThrow(() -> new DataNotFoundException("No Order Found"));
+    }
+
+    public List<Order> getOrders(String email) {
+        return orderRepository.findByEmail(email);
+    }
+
+    public List<Order> getOrders(String email, String zipCode) {
+        return orderRepository.findByEmailAndBillingAddress_Zipcode(email, zipCode);
+    }
 }

@@ -20,29 +20,29 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Configuration
 public class KafkaConfig {
 
-	@Value("${kafka.bootstrap.servers}")
-	private String bootstrapServers;
-	
-	@Bean
-	public ConsumerFactory<String, String> consumerFactory() {
-		Map<String, Object> config = new HashMap<>();
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "oms");
-		return new DefaultKafkaConsumerFactory<>(config);
-	}
+    @Value("${kafka.bootstrap.servers}")
+    private String bootstrapServers;
 
-	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, String> listenerFactory = new ConcurrentKafkaListenerContainerFactory<>();
-		listenerFactory.setConsumerFactory(consumerFactory());
-		return listenerFactory;
-	}
-	
-	@Bean
-	public ObjectMapper objectMapper() {
-		return new ObjectMapper();
-	}
+    @Bean
+    public ConsumerFactory<String, String> consumerFactory() {
+        Map<String, Object> config = new HashMap<>();
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, "oms");
+        return new DefaultKafkaConsumerFactory<>(config);
+    }
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, String> listenerFactory = new ConcurrentKafkaListenerContainerFactory<>();
+        listenerFactory.setConsumerFactory(consumerFactory());
+        return listenerFactory;
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
+    }
 }

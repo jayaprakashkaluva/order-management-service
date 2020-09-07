@@ -9,8 +9,8 @@ import org.springframework.kafka.annotation.EnableKafka;
 @EnableKafka
 public class OrderManagerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OrderManagerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(OrderManagerApplication.class, args);
+    }
 
 }

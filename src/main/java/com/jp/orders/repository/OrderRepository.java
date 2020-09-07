@@ -9,8 +9,9 @@ import com.jp.orders.entity.Order;
 
 @Repository
 public interface OrderRepository extends CrudRepository<Order, String> {
-	
-	List<Order> findByEmail(String email);
-	List<Order> findByEmailAndBillingAddress_Zipcode(String email,String zipcode);
+
+    List<Order> findByEmail(String email);
+
+    List<Order> findByEmailAndBillingAddress_Zipcode(String email, String zipcode);
 
 }
