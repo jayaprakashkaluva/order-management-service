@@ -17,7 +17,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jp.orders.entity.Order;
 import com.jp.orders.repository.OrderRepository;
 import com.jp.orders.vo.GenericPayload;
-
+/*
+This is a listener class which listens to kafka topic and stores into database
+ */
 @Service
 public class OrderProcessor {
 

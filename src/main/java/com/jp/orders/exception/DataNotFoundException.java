@@ -1,5 +1,7 @@
 package com.jp.orders.exception;
-
+/*
+This is exception is thrown to indicate data is not found
+ */
 public class DataNotFoundException extends RuntimeException{
 
 	public String getErrorCode() {
